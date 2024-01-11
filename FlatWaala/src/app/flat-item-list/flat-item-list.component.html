@@ -1,0 +1,22 @@
+<section>  
+  <header>
+    <div>{{flatItems | CategoryList }}</div>
+  </header>
+  
+  <fw-flat-item 
+    classs="flat-tiles-list"
+    *ngFor="let flatItem of flatItems"    
+    [flatItem]="flatItem"
+    (delete)="onFlatItemDelete($event)"
+    [ngClass]="{'type-3bhk':flatItem.type==='3bhk'
+                  ,'type-2bhk':flatItem.type==='2bhk'
+                  ,'type-1bhk':flatItem.type==='1bhk'}">
+  </fw-flat-item>
+
+</section>
+
+<footer>
+  <a routerLink="/add">
+    <img src="assets/addItem.png" class="icon">
+  </a>
+</footer>

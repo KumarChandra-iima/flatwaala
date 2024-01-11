@@ -1,0 +1,160 @@
+:host {
+  display: flex;
+  height: calc(100% - 95px);
+  flex-direction: column;
+  padding: 10px;
+}
+nav a {
+  cursor: pointer;
+}
+header {
+  color: #c6c5c3;
+}
+header.type-1bhk {
+  color: #53ace4;
+}
+header.type-2bhk {
+  color: #45bf94;
+}
+header > h2 {
+  font-size: 1.4em;
+}
+header > h2.error {
+  color: #d93a3e;
+}
+section {
+  flex: 1;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}
+section > flat-item {
+  margin: 10px;
+}
+/* body{
+  display:flex;
+  flex-direction: row;
+  align-content: space-around  ;
+  background-color: #e8820e;
+  align-self: self-start;
+  margin-top:30px;
+} */
+footer {
+  text-align: right;
+}
+footer .icon {
+  width: 64px;
+  height: 64px;
+}
+
+
+/* 
+--------------
+
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  height: 100%;
+  border: 2px solid;
+  background-color: #caba2a;
+  padding: 10px;
+  color: #bdc2c5;
+  margin: 0 12px 12px 0;
+  align-self: center;
+  border-radius: 3px;
+}
+h2 {
+  font-size: 1.6em;
+  flex: 1;
+}
+:host(.type-1bhk) {
+  border-color: #53ace4;
+}
+:host(.type-1bhk) > h2 {
+  color: #53ace4;
+}
+:host(.type-2bhk) {
+  border-color: #53ace4;
+}
+:host(.type-2bhk) > h2 {
+  color: #536ee4;
+}
+:host(.type-3bhk) {
+  border-color: #45bf94;
+}
+:host(.type-3bhk) > h2 {
+  color: #45bf94;
+}
+.tools {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.favorite {
+  width: 24px;
+  height: 24px;
+  fill: #bdc2c5;
+  cursor: pointer;
+}
+.favorite.is-favorite {
+    fill: #37ad79;
+}
+.favorite.is-favorite-hovering {
+    fill: #45bf94;
+}
+.favorite.is-favorite.is-favorite-hovering {
+    fill: #ec4342;
+}
+.delete {
+  display: block;
+  background-color: #ec4342;
+  padding: 4px;
+  font-size: .8em;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+}
+.details {
+  display: block;
+  background-color: #37ad79;
+  padding: 4px;
+  font-size: .8em;
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
+}
+.icon {
+  width: 64px;
+  height: 64px;
+}
+
+fw-flat-item {
+  margin: 5px;
+  flex-direction: column   ;
+  display: block;
+}
+
+nav{
+  margin:2px;
+  border:10px;
+  border-radius: 2px;
+}
+
+section{
+  flex-direction: row;
+}
+
+body{
+  display:flex;
+  flex-direction: row;
+  align-content: space-around  ;
+  background-color: #e8820e;
+  align-self: self-start;
+  margin-top:30px;
+}
+
+footer {
+  text-align: right;
+} */

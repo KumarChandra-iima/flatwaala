@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/flat-waala",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
