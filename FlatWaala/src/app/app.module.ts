@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpXhrBackend } from '@angular/common/http';
+import { SuchiPatrikaComponent } from './suchi-patrika/suchi-patrika.component';
 // import { AngularFireModule } from '@angular/fire';
 // import { AngularFireAuthModule } from '@angular/fire/auth';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +21,9 @@ import { routing } from './app.routing';
 import { AddFlatModule } from './flat-item-from/add-flat.module';
 import { GoogleLoginProvider, SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { environment } from 'src/environments/environment';
+import { SuchiVivaranComponent } from './suchi-vivaran/suchi-vivaran.component';
+import { SuchiSanshodhanVivaranComponent } from './suchi-sanshodhan-vivaran/suchi-sanshodhan-vivaran.component';
+import { MargDarshanComponent } from "./marg-darshan/marg-darshan.component";
 // import { AuthServiceConfig } from 'angularx-social-login';
 
 // const config = new AuthServiceConfig([
@@ -38,29 +43,30 @@ export const analytics = getAnalytics(angularFireAuthModule);
 //   return config;
 // }
 @NgModule({
-  declarations: [
-    AppComponent ,
-    FlatItemComponent,
-    FlatItemListComponent,
-    FavoriteDirective,
-    CategoryListPipe,
-    
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule, 
-    routing,
-    AddFlatModule,
-    SocialLoginModule,
-  ],
-  providers:[
-    {provide: lookupListsToken, useValue:lookupLists},
-    {provide: HttpXhrBackend, useClass:MockXHRBackend},   
-    
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        FlatItemComponent,
+        FlatItemListComponent,
+        FavoriteDirective,
+        CategoryListPipe,
+        SuchiPatrikaComponent,
+        SuchiVivaranComponent,
+        MargDarshanComponent
+    ],
+    providers: [
+        { provide: lookupListsToken, useValue: lookupLists },
+        { provide: HttpXhrBackend, useClass: MockXHRBackend },
+    ],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        routing,
+        AddFlatModule,
+        SocialLoginModule
+    ]
 })
 export class AppModule { }
 // AIzaSyCXNlllbB3qFpBjtOdwUkLyUHMqe2f_VCI

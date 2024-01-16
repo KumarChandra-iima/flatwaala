@@ -1,0 +1,13 @@
+<p>suchi-vivaran works!</p>
+<div class="content-box" >
+    <a routerLink="/suchi">
+        <button>Back</button>
+    </a>
+    <h2>{{suchi?.projName}}</h2>
+    <h2><img class="rupeeImage" src="../../assets/rupee.png">{{ suchi?.price }}</h2>
+    <p>{{suchi?.area}}</p>
+    <p>{{suchi?.sqft}}</p>
+    <a routerLink="/sampark/{{suchi?.id}}">
+        <button>Contact Seller</button>
+    </a>
+</div>

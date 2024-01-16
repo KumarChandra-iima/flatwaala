@@ -13,6 +13,19 @@
                   ,'type-1bhk':flatItem.type==='1bhk'}">
   </fw-flat-item>
 
+  <div>
+    <div *ngIf="suchi.length === 0">There are no flats listed currently</div>
+    <div *ngIf="suchi.length === 0">There are {{suchi.length}} flats listed currently</div>
+    <div class="content-box" *ngIf="suchi.length > 0">
+      There are a total of {{ suchi.length }} flats available
+      <div *ngFor="let flat in suchi">
+        <a href="/suchi/{{ flat.id }}">
+          <h3>{{ flat.projName }} - ${{ flat.price }}</h3>
+        </a>
+      </div>
+    </div>
+  </div>
+  
 </section>
 
 <footer>

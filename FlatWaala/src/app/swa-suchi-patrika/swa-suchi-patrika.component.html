@@ -1,0 +1,17 @@
+<div class="content-box" *ngFor="let flat of suchi">
+  <h3>{{ flat.projName }}</h3>
+  <h3>{{ flat.price }}</h3>
+  <h3>{{ flat.area }}</h3>
+  <h3>{{ flat.sqft }}</h3>
+  <div class="buttons-container">
+    <a routerLink="/suchi-sanshodhan/{{ flat.id }}">
+      <button>Edit</button>
+    </a>
+    <button (click)="onDeleteClicked(flat.id)">Delete</button>
+  </div>
+</div>
+
+<a routerLink="/navin-suchi">
+    <button>Create New Listing</button>
+
+</a>

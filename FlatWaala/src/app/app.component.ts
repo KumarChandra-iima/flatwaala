@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { getAuth, signOut,signInWithPopup, GoogleAuthProvider, User } from "firebase/auth";
-
+import { SuchiPatrikaComponent } from './suchi-patrika/suchi-patrika.component';
 
 @Component({
   selector: 'fw-app',

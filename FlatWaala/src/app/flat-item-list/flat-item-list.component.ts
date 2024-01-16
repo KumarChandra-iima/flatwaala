@@ -1,14 +1,15 @@
 import { Component, OnInit} from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { FlatItemService } from "../flat-item/flat-item.service";
-
+import { Suchi } from "../types";
+import { farjiData } from "../farji-data";
 @Component({
     selector: 'fw-flat-item-list',
     templateUrl: './flat-item-list.component.html',
     styleUrls: ['./flat-item-list.component.css']
 })
 export class FlatItemListComponent implements OnInit{
-
+    suchi:Suchi[]=[];
     flatItems: any;
     type='';
     constructor(private flatItemService: FlatItemService,
@@ -23,6 +24,7 @@ export class FlatItemListComponent implements OnInit{
           inputType=type;
         }
         this.getFlatItems(inputType);
+        this.suchi = farjiData;
       });
       }
     

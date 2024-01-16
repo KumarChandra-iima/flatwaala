@@ -1,0 +1,11 @@
+<div class="content-box">
+    <h2> Edit Listing </h2>
+    <app-suchi-sanshodhan-vivaran 
+        buttonText="Save Changes"
+        [currentProjectName]="suchi?.projName!"
+        [currentPrice]="suchi?.price?.toString()!"
+        [currentArea]="suchi?.area!"
+        [currentSqft]="suchi?.sqft?.toString()!"
+        (onSubmit)="onSubmit()"
+        ></app-suchi-sanshodhan-vivaran>
+</div>

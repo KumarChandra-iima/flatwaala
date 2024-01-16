@@ -1,0 +1,21 @@
+<p>sampark-patrika works!</p>
+<a class="button" routerLink="/suchi">Back to Listings</a>
+<div class="content-box">
+<h3>Send the owner a message </h3>
+<div>
+    <label> Your email address </label>
+    <input name="email" 
+    [(ngModel)]="email"
+    />
+</div>
+<div>
+    <label> Your Message:
+        <textarea name="message"
+        rows="5"
+        cols="20"
+    [(ngModel)]="message"
+        ></textarea>
+    </label>
+</div>
+<button (click)="sendMessage()"> Send  </button>
+</div>

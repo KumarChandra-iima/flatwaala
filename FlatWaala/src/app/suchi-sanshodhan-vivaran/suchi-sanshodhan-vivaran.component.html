@@ -1,0 +1,27 @@
+<form (ngSubmit)="onButtonClicked()">
+    <div>
+        <label for="projName">
+            Project Name: 
+        </label>
+        <input id="projName" name="projName" type="text" [(ngModel)]="projName">
+    </div>
+    <div>
+        <label for="sqft">
+            Size (in sqft): 
+        </label>
+        <input id="sqft" name="sqft" type="text" [(ngModel)]="sqft">
+    </div>
+    <div>
+        <label for="price">
+            Project Price: 
+        </label>
+        <input id="price" name="price" type="text" [(ngModel)]="price">
+    </div>
+    <div>
+        <label for="area">
+            Locality: 
+        </label>
+        <input id="area" name="area" type="text" [(ngModel)]="area">
+    </div>
+    <button type="onButtonClicked"> {{ buttonText }} </button>
+</form>

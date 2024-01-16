@@ -1,5 +1,14 @@
+<div id="page-wrap">
+  <div id="max-width-column">
+    <app-marg-darshan></app-marg-darshan>
+    <div id="content-wrap">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
 
-<nav>
+
+<!-- <nav>
   <a routerLink="/all">
     <img src="assets/0.png" class="icon" />
   </a>
@@ -21,7 +30,7 @@
 </nav>
   <section>
   <header class="description">
-    <h1>Flat Watch List</h1>
+    <h1>Buy and sell Flat</h1>
     <p class="description">Keeping track of the flats I am interested to buy.</p>
   </header>
   <div class="container" style="max-width: 550px">
@@ -41,7 +50,7 @@
       <button type="button" (click)="logOut()" class="btn btn-primary">Log Out</button>
     </div>
   </div>
-  
   <router-outlet *ngIf="isLoggedin===true"></router-outlet>
-</section>
+  <router-outlet></router-outlet>
+</section> -->
 
