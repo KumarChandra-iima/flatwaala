@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpXhrBackend } from '@angular/common/http';
+// import { AngularFireModule } from '@angular/fire';
+// import { AngularFireAuthModule } from '@angular/fire/auth';
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FlatItemComponent } from './flat-item/flat-item.component';
@@ -13,6 +18,7 @@ import { MockXHRBackend } from './mock/mock-xhr-backend';
 import { routing } from './app.routing';
 import { AddFlatModule } from './flat-item-from/add-flat.module';
 import { GoogleLoginProvider, SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import { environment } from 'src/environments/environment';
 // import { AuthServiceConfig } from 'angularx-social-login';
 
 // const config = new AuthServiceConfig([
@@ -21,6 +27,12 @@ import { GoogleLoginProvider, SocialLoginModule, SocialAuthServiceConfig } from 
 //     provider: new GoogleLoginProvider('624796833023-clhjgupm0pu6vgga7k5i5bsfp6qp6egh.apps.googleusercontent.com')
 //   },
 // ]);
+
+
+
+// Initialize Firebase
+export const angularFireAuthModule = initializeApp(environment.firebaseConfig);
+export const analytics = getAnalytics(angularFireAuthModule);
 
 // export function provideConfig() {
 //   return config;
@@ -41,24 +53,12 @@ import { GoogleLoginProvider, SocialLoginModule, SocialAuthServiceConfig } from 
     HttpClientModule, 
     routing,
     AddFlatModule,
-    SocialLoginModule
+    SocialLoginModule,
   ],
   providers:[
     {provide: lookupListsToken, useValue:lookupLists},
-    {provide: HttpXhrBackend, useClass:MockXHRBackend},
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: true, //keeps the user signed in
-        providers: [
-          {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider('350410826287-u9evgdtt7tuli5mjfm7ftubqtkmvaqe9.apps.googleusercontent.com') // your client id: old vlaue: 148517665605-jspahbqleats6lv**********2c11b5g7o.apps.googleusercontent.com
-          }
-        ],
-      } as SocialAuthServiceConfig,
-    },
-    // AuthGuardService
+    {provide: HttpXhrBackend, useClass:MockXHRBackend},   
+    
   ],
   bootstrap: [AppComponent]
 })

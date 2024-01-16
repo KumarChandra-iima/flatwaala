@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import {
-  SocialAuthService,
-  GoogleLoginProvider,
-  SocialUser,
-} from 'angularx-social-login';
 
-declare  var particlesJS: any;
+import { getAuth, signOut,signInWithPopup, GoogleAuthProvider, User } from "firebase/auth";
+
+
 @Component({
   selector: 'fw-app',
   templateUrl: './app.component.html',
@@ -15,37 +11,72 @@ declare  var particlesJS: any;
 })
 export class AppComponent {
   title = 'Flat Waala ... !!';
-
+  displayName : string|null ;
+  userInfo: User|null;
   loginForm!: FormGroup;
-  socialUser!: SocialUser;
   isLoggedin?: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
-    private socialAuthService: SocialAuthService
-  ) {}
+  ) {
+    this.displayName=null;
+    this.userInfo=null;
+  }
   
   ngOnInit(): void{
-    // particlesJS.load('particles','assets/particles.json',()=>{
-    //   console.log('particles.js config loaded')
-    // })
+
+     this.isLoggedin = false;
 
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
     });
-    this.socialAuthService.authState.subscribe((user) => {
-      this.socialUser = user;
-      this.isLoggedin = user != null;
-      console.log(this.socialUser);
-    });
+ 
   }
-  loginWithGoogle(): void {
-    alert(GoogleLoginProvider.PROVIDER_ID);
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  }
+
   logOut(): void {
-    this.socialAuthService.signOut();
+        const auth = getAuth();
+          signOut(auth).then(() => {
+     this.isLoggedin = false;
+
+          }).catch((error) => {
+            // An error happened.
+          });
+  }
+
+  loginWithGoogle():void{
+    
+const auth = getAuth();
+const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    if(credential != null){
+     this.isLoggedin = true;
+
+    const token = credential.accessToken;
+    // The signed-in user info.
+    this.userInfo=result.user;
+    console.log(result.user);
+    this.displayName = result.user.displayName;
+    
+    // IdP data available using getAdditionalUserInfo(result)
+    // ...
+    }
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+
+
   }
   onFlatItemDelete(flatItem:any){}
 }
