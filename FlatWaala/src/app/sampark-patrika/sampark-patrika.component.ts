@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Suchi } from '../types';
 import { farjiData } from '../farji-data';
 import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-sampark-patrika',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './sampark-patrika.component.html',
   styleUrl: './sampark-patrika.component.css'
 })
