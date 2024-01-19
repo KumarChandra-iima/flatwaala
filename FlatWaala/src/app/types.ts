@@ -3,5 +3,6 @@ export interface Suchi{
     projName: string,
     area: string,
     sqft: number,
-    price: number
+    price: number,
+    views: number,
 }

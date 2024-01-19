@@ -2,6 +2,7 @@ import { CommonModule, NgFor, NgIf, NgOptimizedImage,  } from '@angular/common';
 import { Component, OnInit  } from '@angular/core';
 import { Suchi } from '../types';
 import { farjiData } from '../farji-data';
+import { ListingsService } from '../listings.service';
 
 @Component({
   selector: 'app-suchi-patrika',
@@ -19,14 +20,14 @@ import { farjiData } from '../farji-data';
   styleUrl: './suchi-patrika.component.css'
 })
 export class SuchiPatrikaComponent implements OnInit{
-  constructor() {
-    
-  }
+  constructor(
+    private suchiSeva: ListingsService
+  ) {}
   suchi: Suchi[]=[];
   // flat: Suchi = {id:'1', area:'234', price:23423,projName:'2314', sqft:342 };
 
   ngOnInit():void{
-    this.suchi = farjiData;
+    this.suchi = this.suchiSeva.getListings();
     // this.flat= this.suchi[0];
   }
 }

@@ -36,7 +36,8 @@ export class SuchiSanshodhanVivaranComponent {
       area:this.area,
       price: Number(this.price),
       projName: this.projName,
-      sqft: Number(this.sqft)
+      sqft: Number(this.sqft),
+      views:0
     };
     console.log(emitObj);
     this.onSubmit.emit(emitObj);
